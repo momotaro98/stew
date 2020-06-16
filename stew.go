@@ -6,6 +6,9 @@ import (
 )
 
 func Wrap(err error) error {
+	if err == nil {
+		return err
+	}
 	pc := make([]uintptr, 1)
 	n := runtime.Callers(2, pc)
 	frames := runtime.CallersFrames(pc[:n])

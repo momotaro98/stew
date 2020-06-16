@@ -35,3 +35,12 @@ func TestWrap(t *testing.T) {
 		t.Errorf("got: %s, expected: %s", err.Error(), "stew_test.sampleFunc")
 	}
 }
+
+func TestWrapPassNil(t *testing.T) {
+	// Act
+	err := stew.Wrap(nil)
+	// Assert
+	if err != nil {
+		t.Errorf("got: %+v, expected: %+v", err, nil)
+	}
+}
